@@ -24,9 +24,11 @@ public class H2Bootstrap implements CommandLineRunner  {
 		
 		Iterable<RoomEntity> itr = roomRepository.findAll();
 		for (RoomEntity room : itr) {
-			System.out.println( "==>" + room.getPrice() );
+			System.out.println( "==>" + room );
 		}
 
+		RoomEntity room = roomRepository.findByRoomNumber(11);
+		System.out.println(">>>DB Init>found room:"+room);
 	
 	}
 

@@ -10,15 +10,19 @@ import java.util.HashSet;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 
-import convertor.RoomEntitiyToReservationResponseConverter;
+import convertor.ReservationEntityToReservationResponseConverter;
+import convertor.ReservationRequestToReservationEntityConverter;
+import convertor.RoomEntitiyToReservableResponseConverter;
 
 @Configuration
 public class ConversionConfig {
 	
 	private Set<Converter> getConverters() {
 		Set<Converter> converters = new HashSet<Converter>();
-		converters.add( new RoomEntitiyToReservationResponseConverter() ) ;
-				
+		converters.add( new RoomEntitiyToReservableResponseConverter() ) ;
+		converters.add(new ReservationEntityToReservationResponseConverter());
+		converters.add(new ReservationRequestToReservationEntityConverter());
+ 				
 		return converters;
 	}
 

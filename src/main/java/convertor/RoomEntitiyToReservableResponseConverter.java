@@ -6,15 +6,15 @@ import org.springframework.core.convert.converter.Converter;
 import hotel.hotelreservation.entity.RoomEntity;
 import hotel.hotelreservation.model.Links;
 import hotel.hotelreservation.model.Self;
-import hotel.hotelreservation.model.response.ReservationResponse;
+import hotel.hotelreservation.model.response.ReservableRoomResponse;
 import hotel.hotelreservation.rest.ResourceConstants;
 
-public class RoomEntitiyToReservationResponseConverter implements Converter<RoomEntity, ReservationResponse> {
+public class RoomEntitiyToReservableResponseConverter implements Converter<RoomEntity, ReservableRoomResponse> {
 
 	@Override
-	public ReservationResponse convert(RoomEntity source) {
+	public ReservableRoomResponse convert(RoomEntity source) {
 
-		ReservationResponse reservationResponse = new ReservationResponse();
+		ReservableRoomResponse reservationResponse = new ReservableRoomResponse();
 		reservationResponse.setRoomNumber( source.getRoomNumber() );
 		reservationResponse.setPrice(  Integer.valueOf(source.getPrice())  );
 		
